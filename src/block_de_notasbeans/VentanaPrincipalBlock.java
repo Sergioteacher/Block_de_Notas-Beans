@@ -35,8 +35,13 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         BarraMenu = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        MenuArchivo = new javax.swing.JMenu();
+        MitemNuevo = new javax.swing.JMenuItem();
+        MitemSalir = new javax.swing.JMenuItem();
+        MenuEditar = new javax.swing.JMenu();
+        MitemCopiar = new javax.swing.JMenuItem();
+        MitemCortar = new javax.swing.JMenuItem();
+        MitemPegar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,11 +68,28 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
         getContentPane().add(PanelCentral, java.awt.BorderLayout.CENTER);
 
-        jMenu1.setText("File");
-        BarraMenu.add(jMenu1);
+        MenuArchivo.setText("Archivo");
 
-        jMenu2.setText("Edit");
-        BarraMenu.add(jMenu2);
+        MitemNuevo.setText("Nuevo");
+        MenuArchivo.add(MitemNuevo);
+
+        MitemSalir.setText("Salir");
+        MenuArchivo.add(MitemSalir);
+
+        BarraMenu.add(MenuArchivo);
+
+        MenuEditar.setText("Editar");
+
+        MitemCopiar.setText("Copiar");
+        MenuEditar.add(MitemCopiar);
+
+        MitemCortar.setText("Cortar");
+        MenuEditar.add(MitemCortar);
+
+        MitemPegar.setText("Pegar");
+        MenuEditar.add(MitemPegar);
+
+        BarraMenu.add(MenuEditar);
 
         setJMenuBar(BarraMenu);
 
@@ -77,12 +99,17 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JMenu MenuArchivo;
+    private javax.swing.JMenu MenuEditar;
+    private javax.swing.JMenuItem MitemCopiar;
+    private javax.swing.JMenuItem MitemCortar;
+    private javax.swing.JMenuItem MitemNuevo;
+    private javax.swing.JMenuItem MitemPegar;
+    private javax.swing.JMenuItem MitemSalir;
     private javax.swing.JPanel PanelBotonera;
     private javax.swing.JPanel PanelCentral;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel txtEstado;
