@@ -15,6 +15,7 @@ public class Block_de_NotasBeans {
      */
     public static void main(String[] args) {
         System.out.println("Iniciando ...");
+        System.out.println("2222");
     }
     
 }
