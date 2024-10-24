@@ -15,6 +15,7 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
      */
     public VentanaPrincipalBlock() {
         initComponents();
+        System.out.println("Iniciando Ventana");
     }
 
     /**
@@ -26,23 +27,64 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtEstado = new javax.swing.JLabel();
+        PanelCentral = new javax.swing.JPanel();
+        PanelBotonera = new javax.swing.JPanel();
+        btnNuevo = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        BarraMenu = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        txtEstado.setText("Iniciando ...");
+        getContentPane().add(txtEstado, java.awt.BorderLayout.PAGE_END);
+
+        PanelCentral.setLayout(new java.awt.BorderLayout());
+
+        PanelBotonera.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        btnNuevo.setText("Nuevo");
+        PanelBotonera.add(btnNuevo);
+
+        btnSalir.setText("Salir");
+        PanelBotonera.add(btnSalir);
+
+        PanelCentral.add(PanelBotonera, java.awt.BorderLayout.PAGE_START);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        PanelCentral.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(PanelCentral, java.awt.BorderLayout.CENTER);
+
+        jMenu1.setText("File");
+        BarraMenu.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        BarraMenu.add(jMenu2);
+
+        setJMenuBar(BarraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JPanel PanelBotonera;
+    private javax.swing.JPanel PanelCentral;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel txtEstado;
     // End of variables declaration//GEN-END:variables
 }

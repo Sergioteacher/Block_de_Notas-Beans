@@ -16,6 +16,7 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
     public ControlBlock(ModeloConfig MiConfig, VentanaPrincipalBlock MiVentanaPrincipal) {
         this.MiConfig = MiConfig;
         this.MiVentanaPrincipal = MiVentanaPrincipal;
+        System.out.println("Inicialdo Control");
 
 MiConfig.setTitulo("Título dinámico");
     }
