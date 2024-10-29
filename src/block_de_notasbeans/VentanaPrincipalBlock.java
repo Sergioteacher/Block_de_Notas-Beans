@@ -4,6 +4,11 @@
  */
 package block_de_notasbeans;
 
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+//import javax.swing.JButton;
+//import javax.swing.JTextArea;
+
 /**
  *
  * @author Sergio Teacher
@@ -33,7 +38,7 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
         btnNuevo = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        AreaTextoPrincipal = new javax.swing.JTextArea();
         BarraMenu = new javax.swing.JMenuBar();
         MenuArchivo = new javax.swing.JMenu();
         MitemNuevo = new javax.swing.JMenuItem();
@@ -60,9 +65,9 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
         PanelCentral.add(PanelBotonera, java.awt.BorderLayout.PAGE_START);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        AreaTextoPrincipal.setColumns(20);
+        AreaTextoPrincipal.setRows(5);
+        jScrollPane1.setViewportView(AreaTextoPrincipal);
 
         PanelCentral.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -93,11 +98,12 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
         setJMenuBar(BarraMenu);
 
-        pack();
+        setBounds(0, 0, 540, 300);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea AreaTextoPrincipal;
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.JMenu MenuArchivo;
     private javax.swing.JMenu MenuEditar;
@@ -111,7 +117,46 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel txtEstado;
     // End of variables declaration//GEN-END:variables
+
+    public void ClickBtnNuevo(ActionListener l) {
+        btnNuevo.addActionListener(l);
+    }
+
+    public void ClickBtnSalir(ActionListener l) {
+        btnSalir.addActionListener(l);
+    }
+
+    public void ClickMitemNuevo(ActionListener l) {
+        MitemNuevo.addActionListener(l);
+    }
+
+    public void ClickMitemSalir(ActionListener l) {
+        MitemSalir.addActionListener(l);
+    }
+
+    public void ClickMitemCopiar(ActionListener l) {
+        MitemCopiar.addActionListener(l);
+    }
+
+    public void ClickMitemCortar(ActionListener l) {
+        MitemCortar.addActionListener(l);
+    }
+
+    public void ClickMitemPegar(ActionListener l) {
+        MitemPegar.addActionListener(l);
+    }
+
+    public void SMS(String MSM, String Titulo) {
+        JOptionPane.showMessageDialog(null,MSM,Titulo, JOptionPane.WARNING_MESSAGE);
+    }
+
+    public void Estado(String MSM) {
+        txtEstado.setText(MSM);
+    }
+
+    public void ponAreaTextoPrincipal(String Cosa) {
+        AreaTextoPrincipal.setText(Cosa);
+    }
 }
