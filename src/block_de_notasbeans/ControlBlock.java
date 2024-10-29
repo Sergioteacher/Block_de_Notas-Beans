@@ -66,6 +66,7 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
         case "Salir":
             System.out.println("Has elegido Salir");
             MiVentanaPrincipal.SMS("Vas a salir...", "Salir");
+            System.exit(0);
             break;
         case "Copiar":
             System.out.println("Has elegido Copiar");
@@ -138,7 +139,8 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
 	@Override
 	public void componentMoved(ComponentEvent arg0) {
             // TODO Auto-generated method stub
-            System.out.println("Me muevo ...");
+            System.out.print("Me muevo ...");
+            System.out.println(" X: " + arg0.getComponent().getX() + " Y: " + arg0.getComponent().getY());
 	}
 
 	@Override
