@@ -32,6 +32,7 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
         //MiVentanaPrincipal.ClickBtnNuevo(this);
         asociarListenersEscuchadores(this);
 
+        MiVentanaPrincipal.getBtnCasiMVC().addActionListener(this);
     }
 
 /**
@@ -57,11 +58,14 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
 //          System.out.print("getSource -> ");  
 //          System.out.println( e.getActionCommand() );
 
-
         switch (e.getActionCommand()){
         case "Nuevo":
             System.out.println("Has elegido Nuevo");
             MiVentanaPrincipal.ponAreaTextoPrincipal("");
+        break;
+        case "Casi MVC":
+            System.out.println("Casi estoy Solo ...   algo MVC");
+            MiVentanaPrincipal.Estado("Alto: " + MiVentanaPrincipal.getHeight() + "   Ancho: " + MiVentanaPrincipal.getWidth() + "    😕 Casi MVC 🏁");
         break;
         case "Salir":
             System.out.println("Has elegido Salir");
@@ -141,6 +145,7 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
             // TODO Auto-generated method stub
             System.out.print("Me muevo ...");
             System.out.println(" X: " + arg0.getComponent().getX() + " Y: " + arg0.getComponent().getY());
+            System.out.println("--> " + arg0.getComponent().toString());
 	}
 
 	@Override

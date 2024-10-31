@@ -5,6 +5,7 @@
 package block_de_notasbeans;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 //import javax.swing.JButton;
 //import javax.swing.JTextArea;
@@ -37,6 +38,9 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
         PanelBotonera = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        txtFlecha = new javax.swing.JLabel();
+        btnNoMVC = new javax.swing.JButton();
+        btnCasiMVC = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         AreaTextoPrincipal = new javax.swing.JTextArea();
         BarraMenu = new javax.swing.JMenuBar();
@@ -62,6 +66,22 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
         btnSalir.setText("Salir");
         PanelBotonera.add(btnSalir);
+
+        txtFlecha.setText("          ETO son botones  👽  -->");
+        PanelBotonera.add(txtFlecha);
+
+        btnNoMVC.setBackground(new java.awt.Color(255, 51, 51));
+        btnNoMVC.setText("NoMVC");
+        btnNoMVC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNoMVCActionPerformed(evt);
+            }
+        });
+        PanelBotonera.add(btnNoMVC);
+
+        btnCasiMVC.setBackground(new java.awt.Color(255, 255, 0));
+        btnCasiMVC.setText("Casi MVC");
+        PanelBotonera.add(btnCasiMVC);
 
         PanelCentral.add(PanelBotonera, java.awt.BorderLayout.PAGE_START);
 
@@ -98,8 +118,14 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
         setJMenuBar(BarraMenu);
 
-        setBounds(0, 0, 540, 300);
+        setBounds(0, 0, 620, 300);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNoMVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoMVCActionPerformed
+        System.out.println("Estoy Solo.................sin MVC");
+        txtEstado.setText( "Alto: " + this.getHeight() + "   Ancho: " + this.getWidth() + "       ⛔ NO soy  MVC! 😠😠😠 " );
+
+    }//GEN-LAST:event_btnNoMVCActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -114,10 +140,13 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
     private javax.swing.JMenuItem MitemSalir;
     private javax.swing.JPanel PanelBotonera;
     private javax.swing.JPanel PanelCentral;
+    private javax.swing.JButton btnCasiMVC;
+    private javax.swing.JButton btnNoMVC;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel txtEstado;
+    private javax.swing.JLabel txtFlecha;
     // End of variables declaration//GEN-END:variables
 
     public void ClickBtnNuevo(ActionListener l) {
@@ -159,4 +188,14 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
     public void ponAreaTextoPrincipal(String Cosa) {
         AreaTextoPrincipal.setText(Cosa);
     }
+
+    public JButton getBtnCasiMVC() {
+        return btnCasiMVC;
+    }
+
+    public void setBtnCasiMVC(JButton btnCasiMVC) {
+        this.btnCasiMVC = btnCasiMVC;
+    }
+
+
 }
