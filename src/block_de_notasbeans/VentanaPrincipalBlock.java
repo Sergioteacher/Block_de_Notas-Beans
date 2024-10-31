@@ -7,6 +7,7 @@ package block_de_notasbeans;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 //import javax.swing.JButton;
 //import javax.swing.JTextArea;
 
@@ -21,6 +22,7 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
      */
     public VentanaPrincipalBlock() {
         initComponents();
+        this.setLocationRelativeTo(null);
         System.out.println("Iniciando Ventana");
     }
 
@@ -191,10 +193,6 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
     public JButton getBtnCasiMVC() {
         return btnCasiMVC;
-    }
-
-    public void setBtnCasiMVC(JButton btnCasiMVC) {
-        this.btnCasiMVC = btnCasiMVC;
     }
 
 

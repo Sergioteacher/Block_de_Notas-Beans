@@ -4,12 +4,16 @@
  */
 package block_de_notasbeans;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,28 +22,41 @@ import java.awt.event.WindowListener;
 public class ControlBlock implements ActionListener, WindowListener, ComponentListener {
 
 private ModeloConfig MiConfig;
+private Font Mifuente;
 private VentanaPrincipalBlock MiVentanaPrincipal;
+private VentanaH MiVistaHalloween;
+int optionT=0;
+String[] optionesHalloween={"Clásico", "  👻 "};
 
-    public ControlBlock(ModeloConfig MiConfig, VentanaPrincipalBlock MiVentanaPrincipal) {
+    public ControlBlock(ModeloConfig MiConfig, VentanaPrincipalBlock MiVentanaPrincipal, VentanaH MiVistaHalloween) {
         this.MiConfig = MiConfig;
+        Mifuente = MiConfig.getFuente();
         this.MiVentanaPrincipal = MiVentanaPrincipal;
+        this.MiVistaHalloween = MiVistaHalloween;
         System.out.println("Inicialdo Control");
+
+//optionT = JOptionPane.showOptionDialog(MiVentanaPrincipal, this, title, optionT, optionT, icon, optionesHalloween, optionT);
+        optionT = JOptionPane.showOptionDialog(null, "BlockBeans", "Selecione opción de arranque", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, optionesHalloween, "Clásico");
+        MiConfig.setOptionArranque(optionT);
 
         MiConfig.setTitulo("Título dinámico");
         MiVentanaPrincipal.ponAreaTextoPrincipal(MiConfig.getGalleta());
+        MiVistaHalloween.ponAreaTextoPrincipal(MiConfig.getGalleta());
 
         //ManejadorClicks MisClicks = new ManejadorClicks();
         //MiVentanaPrincipal.ClickBtnNuevo(this);
-        asociarListenersEscuchadores(this);
-
-        MiVentanaPrincipal.getBtnCasiMVC().addActionListener(this);
+        asociarListenersEscuchadores(this, optionT);
     }
 
 /**
 *   Una forma compacta de agrupar las llamadas.
 *   @param listener Recibe los eventos
 */
-    public void asociarListenersEscuchadores (ActionListener listener){
+
+    public void asociarListenersEscuchadores (ActionListener listener, int option){
+
+if( option == 0){
+        MiVentanaPrincipal.getBtnCasiMVC().addActionListener(this);
         MiVentanaPrincipal.ClickBtnNuevo(this);
         MiVentanaPrincipal.ClickBtnSalir(this);
         MiVentanaPrincipal.ClickMitemNuevo(this);
@@ -50,6 +67,18 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
 
         MiVentanaPrincipal.addWindowListener(this);
         MiVentanaPrincipal.addComponentListener(this);
+}
+if( option == 1){
+        MiVistaHalloween.ClickBtnNuevo(this);
+        MiVistaHalloween.ClickBtnSalir(this);
+        MiVistaHalloween.ClickMitemCopiar(this);
+        MiVistaHalloween.ClickMitemCortar(this);
+        MiVistaHalloween.ClickMitemPegar(this);
+
+        MiVistaHalloween.addWindowListener(this);
+        MiVistaHalloween.addComponentListener(this);
+}
+
     }
 
     @Override
@@ -61,28 +90,34 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
         switch (e.getActionCommand()){
         case "Nuevo":
             System.out.println("Has elegido Nuevo");
-            MiVentanaPrincipal.ponAreaTextoPrincipal("");
+            if( optionT == 0 ){MiVentanaPrincipal.ponAreaTextoPrincipal("");}
+            if( optionT == 1 ){MiVistaHalloween.ponAreaTextoPrincipal("");}
         break;
         case "Casi MVC":
             System.out.println("Casi estoy Solo ...   algo MVC");
-            MiVentanaPrincipal.Estado("Alto: " + MiVentanaPrincipal.getHeight() + "   Ancho: " + MiVentanaPrincipal.getWidth() + "    😕 Casi MVC 🏁");
+            if( optionT == 0 ){MiVentanaPrincipal.Estado("Alto: " + MiVentanaPrincipal.getHeight() + "   Ancho: " + MiVentanaPrincipal.getWidth() + "    😕 Casi MVC 🏁");}
+            if( optionT == 1 ){MiVistaHalloween.Estado("Alto: " + MiVentanaPrincipal.getHeight() + "   Ancho: " + MiVentanaPrincipal.getWidth() + "    😕 Casi MVC 🏁");}            
         break;
         case "Salir":
             System.out.println("Has elegido Salir");
-            MiVentanaPrincipal.SMS("Vas a salir...", "Salir");
+            if( optionT == 0 ){MiVentanaPrincipal.SMS("Vas a salir...", "Salir");}
+            if( optionT == 1 ){MiVistaHalloween.SMS("Vas a salir...", "Salir");}
             System.exit(0);
             break;
         case "Copiar":
             System.out.println("Has elegido Copiar");
-            MiVentanaPrincipal.SMS("Vas a copiar...", "Copiar");
+            if( optionT == 0 ){MiVentanaPrincipal.SMS("Vas a copiar...", "Copiar");}
+            if( optionT == 1 ){MiVistaHalloween.SMS("Vas a copiar...", "Copiar");}
             break;
         case "Cortar":
             System.out.println("Has elegido Cortar");
-            MiVentanaPrincipal.SMS("Vas a cortar...", "Cortar");
+            if( optionT == 0 ){MiVentanaPrincipal.SMS("Vas a cortar...", "Cortar");}
+            if( optionT == 1 ){MiVistaHalloween.SMS("Vas a cortar...", "Cortar");}
             break;
         case "Pegar":
             System.out.println("Has elegido Pegar");
-            MiVentanaPrincipal.SMS("Vas a pegar...", "Pegar");
+            if( optionT == 0 ){MiVentanaPrincipal.SMS("Vas a pegar...", "Pegar");}
+            if( optionT == 1 ){MiVistaHalloween.SMS("Vas a pegar...", "Pegar");}
             break;
         default :
             System.out.print("Elegido... ");
@@ -155,7 +190,8 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
             System.out.println( arg0.getComponent().getSize() );
             System.out.println( arg0.getComponent().getSize().getHeight() );
             System.out.println( arg0.getComponent().getSize().getWidth() );
-            MiVentanaPrincipal.Estado("Alto: " + arg0.getComponent().getSize().height + "   Ancho: " + arg0.getComponent().getSize().width);
+            if( optionT == 0 ){MiVentanaPrincipal.Estado("Alto: " + arg0.getComponent().getSize().height + "   Ancho: " + arg0.getComponent().getSize().width);}
+            if( optionT == 1 ){MiVistaHalloween.Estado("Alto: " + arg0.getComponent().getSize().height + "   Ancho: " + arg0.getComponent().getSize().width);}
 	}
 
 	@Override
@@ -164,14 +200,21 @@ private VentanaPrincipalBlock MiVentanaPrincipal;
             System.out.println("Se muestran los componentes ...");
 	}	
 
-    public void InicialControl(){
-        MiVentanaPrincipal.setTitle( MiConfig.getTitulo());
-        MiVentanaPrincipal.setVisible(true);
+    public void InicialControl() throws IOException{
+
+        if( MiConfig.getOptionArranque()==0 ){
+            MiVentanaPrincipal.setTitle( MiConfig.getTitulo() + " Clásico" );
+            MiVentanaPrincipal.setVisible(true);
+        }else{
+            MiVistaHalloween.setTitle( MiConfig.getTitulo() + "  👻" );
+            MiVistaHalloween.fuenteAreaTextoPrincipal(Mifuente);
+            MiVistaHalloween.setVisible(true);
+        }
+        
+        MiConfig.finalize();
     }
-
-    
+  
 }
-
 /*
 class ManejadorClicks implements ActionListener{
 
