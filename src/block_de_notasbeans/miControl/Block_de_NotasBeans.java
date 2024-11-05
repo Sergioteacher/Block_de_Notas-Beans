@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package block_de_notasbeans;
+package block_de_notasbeans.miControl;
 
-import java.awt.FontFormatException;
+import block_de_notasbeans.misModelos.ModeloConfig;
+import block_de_notasbeans.vistas.VentanaH;
+import block_de_notasbeans.vistas.VentanaPrincipalBlock;
 import java.io.IOException;
 
 /**
@@ -15,8 +17,9 @@ public class Block_de_NotasBeans {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) throws FontFormatException, IOException {
+    public static void main(String[] args) throws IOException {
         System.out.println("Iniciando ...");
         
         ModeloConfig MiConfiguracion = new ModeloConfig();

@@ -2,9 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package block_de_notasbeans;
+package block_de_notasbeans.miControl;
 
-import java.awt.Color;
+import block_de_notasbeans.vistas.VentanaH;
+import block_de_notasbeans.vistas.VentanaPrincipalBlock;
+import block_de_notasbeans.misModelos.ModeloConfig;
+
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,14 +34,19 @@ String[] optionesHalloween={"Clásico", "  👻 "};
 
     public ControlBlock(ModeloConfig MiConfig, VentanaPrincipalBlock MiVentanaPrincipal, VentanaH MiVistaHalloween) {
         this.MiConfig = MiConfig;
-        Mifuente = MiConfig.getFuente();
+        Mifuente = MiConfig.getMiaFuente();
         this.MiVentanaPrincipal = MiVentanaPrincipal;
         this.MiVistaHalloween = MiVistaHalloween;
-        System.out.println("Inicialdo Control");
+        System.out.println("Inicialdo el Control del Block de Notas");
 
 //optionT = JOptionPane.showOptionDialog(MiVentanaPrincipal, this, title, optionT, optionT, icon, optionesHalloween, optionT);
         optionT = JOptionPane.showOptionDialog(null, "BlockBeans", "Selecione opción de arranque", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, optionesHalloween, "Clásico");
         MiConfig.setOptionArranque(optionT);
+        System.out.println("Salida optionT: " + optionT);
+
+        if (optionT == -1){
+        System.exit(0);
+        }
 
         MiConfig.setTitulo("Título dinámico");
         MiVentanaPrincipal.ponAreaTextoPrincipal(MiConfig.getGalleta());
@@ -51,33 +60,33 @@ String[] optionesHalloween={"Clásico", "  👻 "};
 /**
 *   Una forma compacta de agrupar las llamadas.
 *   @param listener Recibe los eventos
+*   @param option   Cual de las 2 ventanas carga
 */
-
     public void asociarListenersEscuchadores (ActionListener listener, int option){
 
-if( option == 0){
-        MiVentanaPrincipal.getBtnCasiMVC().addActionListener(this);
-        MiVentanaPrincipal.ClickBtnNuevo(this);
-        MiVentanaPrincipal.ClickBtnSalir(this);
-        MiVentanaPrincipal.ClickMitemNuevo(this);
-        MiVentanaPrincipal.ClickMitemSalir(this);
-        MiVentanaPrincipal.ClickMitemCopiar(this);
-        MiVentanaPrincipal.ClickMitemCortar(this);
-        MiVentanaPrincipal.ClickMitemPegar(this);
+        if( option == 0){
+                MiVentanaPrincipal.getBtnCasiMVC().addActionListener(this);
+                MiVentanaPrincipal.ClickBtnNuevo(this);
+                MiVentanaPrincipal.ClickBtnSalir(this);
+                MiVentanaPrincipal.ClickMitemNuevo(this);
+                MiVentanaPrincipal.ClickMitemSalir(this);
+                MiVentanaPrincipal.ClickMitemCopiar(this);
+                MiVentanaPrincipal.ClickMitemCortar(this);
+                MiVentanaPrincipal.ClickMitemPegar(this);
 
-        MiVentanaPrincipal.addWindowListener(this);
-        MiVentanaPrincipal.addComponentListener(this);
-}
-if( option == 1){
-        MiVistaHalloween.ClickBtnNuevo(this);
-        MiVistaHalloween.ClickBtnSalir(this);
-        MiVistaHalloween.ClickMitemCopiar(this);
-        MiVistaHalloween.ClickMitemCortar(this);
-        MiVistaHalloween.ClickMitemPegar(this);
+                MiVentanaPrincipal.addWindowListener(this);
+                MiVentanaPrincipal.addComponentListener(this);
+        }
+        if( option == 1){
+                MiVistaHalloween.ClickBtnNuevo(this);
+                MiVistaHalloween.ClickBtnSalir(this);
+                MiVistaHalloween.ClickMitemCopiar(this);
+                MiVistaHalloween.ClickMitemCortar(this);
+                MiVistaHalloween.ClickMitemPegar(this);
 
-        MiVistaHalloween.addWindowListener(this);
-        MiVistaHalloween.addComponentListener(this);
-}
+                MiVistaHalloween.addWindowListener(this);
+                MiVistaHalloween.addComponentListener(this);
+        }
 
     }
 
@@ -180,7 +189,7 @@ if( option == 1){
             // TODO Auto-generated method stub
             System.out.print("Me muevo ...");
             System.out.println(" X: " + arg0.getComponent().getX() + " Y: " + arg0.getComponent().getY());
-            System.out.println("--> " + arg0.getComponent().toString());
+            //System.out.println("--> " + arg0.getComponent().toString());
 	}
 
 	@Override
@@ -211,7 +220,6 @@ if( option == 1){
             MiVistaHalloween.setVisible(true);
         }
         
-        MiConfig.finalize();
     }
   
 }

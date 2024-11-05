@@ -2,14 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package block_de_notasbeans;
+package block_de_notasbeans.vistas;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-//import javax.swing.JButton;
-//import javax.swing.JTextArea;
+
 
 /**
  *
@@ -23,7 +21,7 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
     public VentanaPrincipalBlock() {
         initComponents();
         this.setLocationRelativeTo(null);
-        System.out.println("Iniciando Ventana");
+        System.out.println("Iniciando Ventana Principal");
     }
 
     /**
@@ -126,7 +124,7 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
     private void btnNoMVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoMVCActionPerformed
         System.out.println("Estoy Solo.................sin MVC");
         txtEstado.setText( "Alto: " + this.getHeight() + "   Ancho: " + this.getWidth() + "       ⛔ NO soy  MVC! 😠😠😠 " );
-
+        System.out.println("Evento: " + evt);
     }//GEN-LAST:event_btnNoMVCActionPerformed
 
 

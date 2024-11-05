@@ -2,12 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package block_de_notasbeans;
+package block_de_notasbeans.vistas;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,9 +20,9 @@ public class VentanaH extends javax.swing.JFrame {
      */
     public VentanaH() {
 
-
         initComponents();
         this.setLocationRelativeTo(null);
+        System.out.println("Iniciando Ventana Halloween!");
 //        this.setUndecorated(true);
     }
 
