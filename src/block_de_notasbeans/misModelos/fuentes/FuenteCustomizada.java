@@ -14,29 +14,46 @@ import java.io.InputStream;
  * @author Sergio Teacher
  */
 public class FuenteCustomizada {
-    private Font Mifuente = null;
-    private String fuenteNombre = "HelpMe.ttf" ;
+    private Font MifuenteH = null;
+    private Font MifuenteOp = null;
+    private String fuenteHelpMe = "HelpMe.ttf" ;
+    private String fuenteRunic = "runic_sans_plainwebfont.ttf" ;
     private InputStream is;
 
     public FuenteCustomizada() throws IOException {
 
         try{
-                    is =  getClass().getResourceAsStream(fuenteNombre);
-                    Mifuente = Font.createFont(Font.TRUETYPE_FONT, is);
-                    System.out.println("Sí se ha cargado mi fuente!!!");
+                    is =  getClass().getResourceAsStream(fuenteHelpMe);
+                    MifuenteH = Font.createFont(Font.TRUETYPE_FONT, is);
+                    System.out.println("Sí se ha cargado mi fuente HelpMe!!!");
         }catch(FontFormatException | IOException ex){
                     //Si existe un error se carga fuente por defecto ARIAL
-                    System.err.println(fuenteNombre + " No se cargo la fuente");
-                    Mifuente = new Font("Arial", Font.PLAIN, 14);
+                    System.err.println(fuenteHelpMe + " No se cargo la fuente HelpMe");
+                    MifuenteH = new Font("Arial", Font.PLAIN, 14);
+        }finally{
+                    is.close();
+        }
+
+try{
+                    is =  getClass().getResourceAsStream(fuenteRunic);
+                    MifuenteOp = Font.createFont(Font.TRUETYPE_FONT, is);
+                    System.out.println("Sí se ha cargado mi fuente Runic!!!");
+        }catch(FontFormatException | IOException ex){
+                    //Si existe un error se carga fuente por defecto ARIAL
+                    System.err.println(fuenteHelpMe + " No se cargo la fuente Runic");
+                    MifuenteOp = new Font("Arial", Font.PLAIN, 14);
         }finally{
                     is.close();
         }
 
     }
 
-    public Font getMifuente(int estilo, float tamanio) {
-        Font tfont = Mifuente.deriveFont(estilo, tamanio);
+    public Font getMifuenteH(int estilo, float tamanio) {
+        Font tfont = MifuenteH.deriveFont(estilo, tamanio);
         return tfont;
     }
-
+    public Font getMifuenteOp(int estilo, float tamanio) {
+        Font tfont = MifuenteOp.deriveFont(estilo, tamanio);
+        return tfont;
+    }
 }

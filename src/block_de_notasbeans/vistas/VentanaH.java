@@ -191,8 +191,17 @@ public class VentanaH extends javax.swing.JFrame {
         AreaTextoPrincipal.setText(Cosa);
     }
 
-public void fuenteAreaTextoPrincipal(Font Cosa) {
+    public void fuenteAreaTextoPrincipal(Font Cosa) {
         AreaTextoPrincipal.setFont(Cosa);
+    }
+
+    public void fuenteOpcional (Font Cosa) {
+        btnCopiar.setFont(Cosa);
+        btnCortar.setFont(Cosa);
+        btnPegar.setFont(Cosa);
+        btnNuevo.setFont(Cosa);
+        btnSalir.setFont(Cosa);
+        txtEstado.setFont(Cosa);
     }
 
 /*

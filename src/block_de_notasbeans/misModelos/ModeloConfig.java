@@ -16,8 +16,9 @@ public class ModeloConfig {
     private String Titulo;
     private int optionArranque;
 
-    FuenteCustomizada fcuston;
-    private Font MiaFuente=null;
+    private FuenteCustomizada fcuston;
+    private Font MiaFuenteH=null;
+    private Font MiaFuenteOp=null;
 
 
     private final String galleta ="En un lugar de la Mancha, "
@@ -45,13 +46,19 @@ public class ModeloConfig {
         }
 
         System.out.println("directorio de ejecución-> "+ System.getProperty("user.dir"));
-        MiaFuente = fcuston.getMifuente(Font.PLAIN, 18);
+        MiaFuenteH = fcuston.getMifuenteH(Font.PLAIN, 18);
+        MiaFuenteOp = fcuston.getMifuenteOp(Font.PLAIN, 16);
+    }
+
+    public Font getMiaFuenteH() {
+        return MiaFuenteH;
+    }
+
+    public Font getMiaFuenteOp() {
+        return MiaFuenteOp;
     }
 
 
-    public Font getMiaFuente() {
-        return MiaFuente;
-    }
 
 
     public int getOptionArranque() {

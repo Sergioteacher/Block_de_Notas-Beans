@@ -26,7 +26,8 @@ import javax.swing.JOptionPane;
 public class ControlBlock implements ActionListener, WindowListener, ComponentListener {
 
 private ModeloConfig MiConfig;
-private Font Mifuente;
+private Font MifuenteH;
+private Font MifuenteOp;
 private VentanaPrincipalBlock MiVentanaPrincipal;
 private VentanaH MiVistaHalloween;
 int optionT=0;
@@ -34,7 +35,8 @@ String[] optionesHalloween={"Clásico", "  👻 "};
 
     public ControlBlock(ModeloConfig MiConfig, VentanaPrincipalBlock MiVentanaPrincipal, VentanaH MiVistaHalloween) {
         this.MiConfig = MiConfig;
-        Mifuente = MiConfig.getMiaFuente();
+        MifuenteH = MiConfig.getMiaFuenteH();
+        MifuenteOp = MiConfig.getMiaFuenteOp();
         this.MiVentanaPrincipal = MiVentanaPrincipal;
         this.MiVistaHalloween = MiVistaHalloween;
         System.out.println("Inicialdo el Control del Block de Notas");
@@ -216,7 +218,8 @@ String[] optionesHalloween={"Clásico", "  👻 "};
             MiVentanaPrincipal.setVisible(true);
         }else{
             MiVistaHalloween.setTitle( MiConfig.getTitulo() + "  👻" );
-            MiVistaHalloween.fuenteAreaTextoPrincipal(Mifuente);
+            MiVistaHalloween.fuenteAreaTextoPrincipal(MifuenteH);
+            MiVistaHalloween.fuenteOpcional(MifuenteOp);
             MiVistaHalloween.setVisible(true);
         }
         
