@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class VentanaPrincipalBlock extends javax.swing.JFrame {
 
+private VentanaConfig Vconf;
+
     /**
      * Creates new form VentanaPrincipalBlock
      */
@@ -125,6 +127,10 @@ public class VentanaPrincipalBlock extends javax.swing.JFrame {
         System.out.println("Estoy Solo.................sin MVC");
         txtEstado.setText( "Alto: " + this.getHeight() + "   Ancho: " + this.getWidth() + "       ⛔ NO soy  MVC! 😠😠😠 " );
         System.out.println("Evento: " + evt);
+        System.out.println("ventanaaaaaaaaaaaaaaaa C");
+Vconf = new VentanaConfig(this);
+Vconf.setVisible(true);
+this.setEnabled(false);
     }//GEN-LAST:event_btnNoMVCActionPerformed
 
 

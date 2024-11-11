@@ -137,7 +137,7 @@ String[] optionesHalloween={"Clásico", "  👻 "};
         }
     }
 
-@Override
+        @Override
 	public void windowActivated(WindowEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println("La ventana pricipal Activada    (cambio de estado 1)");
